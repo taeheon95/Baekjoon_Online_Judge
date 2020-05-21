@@ -1,15 +1,14 @@
-for i in range(int(input())):
+for _ in [0]*int(input()):
     x, y = map(int, input().split())
-    length = y - x
-    llist = []
-    sum = 0
+    l = y - x
+    t = 0
+    s = 0
     i = 1
-    while sum < length:
-        if sum < length:
-            sum += i
-            llist.append(i)
-        if sum < length:
-            sum += i
-            llist.append(i)
+    while s < l:
+        s += i
+        t += 1
+        if s < l:
+            s += i
+            t += 1
         i+=1
-    print(len(llist))
+    print(t)
