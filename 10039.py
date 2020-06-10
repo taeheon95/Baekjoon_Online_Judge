@@ -1,8 +1,1 @@
-ns = [int(input()) for i in range(5)]
-su = 0
-for n in ns:
-    if n>=40:
-        su+=n
-    else: su+=40
-
-print(int(su/5))
+print(sum([max(8,int(input())//5) for i in [0]*5]))
