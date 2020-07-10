@@ -1,0 +1,5 @@
+s,k,h=map(int,input().split())
+if sum([s,k,h])>=100:print("OK");exit(0)
+if s==min([s,k,h]):print("Soongsil")
+elif k==min([s,k,h]):print("Korea")
+else:print("Hanyang")
