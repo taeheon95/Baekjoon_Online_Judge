@@ -1,14 +1,6 @@
-a=[]
-for _ in range(3):
-    s=0
-    for i in range(int(input())):
-        s += int(input())
-    if s>0:
-        a.append("+")
-    elif s==0:
-        a.append("0")
-    else:
-        a.append("-")
-
-for i in a:
-    print(a)
+import sys
+ans=[]
+for i in range(3):
+    s=sum([int(sys.stdin.readline()) for j in range(int(sys.stdin.readline()))])
+    ans.append('0' if s==0 else '-' if s<0 else '+' )
+print('\n'.join(ans))
