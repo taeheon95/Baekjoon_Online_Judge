@@ -1,29 +1,41 @@
 #include<iostream>
 #include<string>
-
 using namespace std;
-
 int main()
 {
-    string str, trans;
-    bool error = true;
-    cin>>str;
-    for(int i=0; i<str.length(); i++){
-        if(str[i] >= 'A' && str[i]<= 'Z'){
-            error = false;
-            trans.push_back('_');
-            trans.push_back(str[i]+32);
+    string s;
+    cin >> s;
+    bool c = false, java = false, err = false;
+    string result;
+
+    for (int i = 0; i < s.length(); i++){
+        if ('A' <= s[i] && s[i] <= 'Z'){
+            if (!i || c)
+                {err = true;break;}
+                
+            result += '_';
+            result += s[i] - 'A' + 'a';
+            java = true;
         }
-        else if(str[i] == '_'){
-            error = false;
-            i+=1;
-            trans.push_back(str[i]-32);
+
+        else if (s[i] == '_'){
+            if (!i || java)
+                {err = true;break;}
+            else if(i == s.length() - 1 || s[i + 1] == '_' )
+                {err = true;break;}
+            else if('A' <= s[i + 1] && s[i + 1] <= 'Z')
+                {err = true;break;}
+
+            result += s[i + 1] - 'a' + 'A';
+            i++;
+            c = true;
         }
         else
-            trans.push_back(str[i]);
+            result += s[i];
     }
-    if(error == true)
-        cout<<"\"Error!\"";
+    if (err)
+        cout << "Error!\n";
     else
-        cout<<trans;
+        cout << result << "\n";
+    return 0;
 }
