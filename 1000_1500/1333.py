@@ -1,0 +1,1 @@
+N,L,D=map(int,input().split())
