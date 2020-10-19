@@ -1,5 +1,5 @@
 N=int(input())
-s=[list(map(lambda x:ord(x)-55 if ord(x)>=65 else int(x),input()[::-1])) for i in range(N)]
+s=[list(map(lambda x:ord(x)-55 if ord(x)>=65 else int(x),input()[::-1]))for i in range(N)]
 K=int(input())
 d={i:0 for i in sum(s,[])}
 for i in d:
@@ -15,6 +15,6 @@ for i in s:
         if i[j] in l:b+=35*(36**j)
         else:b+=i[j]*(36**j)
 a=[]
-while b >= 36:a.append(b%36);b=b//36
+while b>=36:a.append(b%36);b=b//36
 a.append(b)
 print("".join(map(lambda x: chr(x+55) if x>=10 else str(x),a[::-1])))
