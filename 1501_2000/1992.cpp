@@ -10,9 +10,9 @@ int main(){
     string line;
     string result;
 
-    for (size_t i = 0; i < N; i++){
+    for (int i = 0; i < N; i++){
         cin>>line;
-        for (size_t j = 0; j < N; j++){
+        for (int j = 0; j < N; j++){
             images[i][j] = line[i] -'0';
         }
     }
@@ -27,8 +27,8 @@ string quad_tree(int x, int y, int n){
         return to_string(images[x][y]);
 
     string result = "";
-    for (size_t i = x; i < x+n; i++){
-        for (size_t j = y; j < y+n; j++){
+    for (int i = x; i < x+n; i++){
+        for (int j = y; j < y+n; j++){
             if(images[i][j] != images[x][y]){
                 result += "(";
                 result += quad_tree(x, y, n/2);
