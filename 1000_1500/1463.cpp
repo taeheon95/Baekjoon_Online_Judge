@@ -1,25 +1,16 @@
 #include<iostream>
-
 using namespace std;
-
 int dp[1000001] = {0,0,1,1};
-
-int dpmaking(int n)
-{
-    if(n != 0)
-        return dp[n];
-    else if(n%3 == 0)
-        return dp[n] = dpmaking(n/3)+1;
-    else if(n%2 == 0)
-        return dp[n] = dpmaking(n/2)+1;
-    else
-        return dp[n] = dpmaking(n-1)+1;
-    
-}
-
 int main()
 {
     int n;
     cin>>n;
-    cout<<dpmaking(n)<<endl;
+    for(int i=4; i<n+1; i++){
+        dp[i] = dp[i-1]+1;
+        if(i%2==0)
+            dp[i] = min(dp[i],dp[i/2]+1);
+        if (i%3==0)
+            dp[i] = min(dp[i],dp[i/3]+1);
+    }
+    cout<<dp[n];
 }
