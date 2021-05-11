@@ -1,46 +1,35 @@
 #include<iostream>
 #include<stack>
 #include<string>
+#include<algorithm>
 
 using namespace std;
 
-void solution(string&, stack<char>&);
+string instr;
+bool isVisited[51];
 
-int main()
-{
-    string str, ans;
-    stack<char> stk;
-    cin>>str;
-
-    for(auto c:str){
-        switch(c)
-        {
-            case ')':
-                solution(ans,stk);
-                break;
-            default:
-                stk.push(c);
-                break;
+int dfs(string&s, int idx){
+    int cnt = 0;
+    for(int i=idx; i<s.length(); i++){
+        if(s[i] == '(' && !isVisited[i]){
+            isVisited[i] = true;
+            int num = s[i-1] -'0';
+            cnt--;
+            cnt += num *dfs(s, i+1);
+        }
+        else if (s[i] == ')' && !isVisited[i]) {
+            isVisited[i] = true;
+            return cnt;
+        }
+        else if(!isVisited[i]){
+            isVisited[i] = true;
+            cnt++;
         }
     }
-    while(!stk.empty()){
-        ans += stk.top();
-        stk.pop();
-    }
+    return cnt;
 }
 
-
-void solution(string& sans, stack<char>& sstk)
-{
-    if(sstk.top() == '('){
-        sstk.pop();
-        for(int i=1; i < sstk.top()-'0'; i++)
-            sans += sans;
-        return;
-    }
-    else{
-        sans += sstk.top();
-        sstk.pop();
-        solution(sans, sstk);
-    }
+int main(){
+    cin>>instr;
+    cout<<dfs(instr, 0);
 }
