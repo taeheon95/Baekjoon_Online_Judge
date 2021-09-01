@@ -1,19 +1,23 @@
-#include<iostream>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
 using namespace std;
 
 int main()
 {
-    int N, *a, *nl, *p;
-    cin>>N;
-    a = new int[N];
-    nl = new int[N];
-    p =  new int[N];
-    for(int i=0; i<N; i++){
-        a[i] = i;
-        cin>>nl[i];
+    int n;
+    cin >> n;
+    vector<pair<int, int> > p(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> p[i].first;
+        p[i].second = i;
     }
-    for(int i=0; i<N; i++){
-        p[i] = a[nl[i]-1];
-        cout<<p[i]<<endl;
+    sort(p.begin(), p.end());
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << p[i].second;
     }
 }
