@@ -1,23 +1,24 @@
 import sys
-from collections import Counter
-sum = 0
-nlist = [int(sys.stdin.readline().rstrip()) for i in range(int(sys.stdin.readline().rstrip()))]
-for i in range(len(nlist)):
-    sum += nlist[i]
-sys.stdout.writelines('%.0f\n' %(sum/len(nlist)))
-nlist = sorted(nlist)
-if len(nlist) == 1:
-    print(nlist[0])
-    print(nlist[0])
-    print(0)
-    sys.exit()
-sys.stdout.writelines(str(nlist[len(nlist)//2])+'\n')
-cnt = Counter(nlist)
-cnt = sorted(cnt.items(), key= lambda x: (-x[1], x[0]))
 
-if cnt[0][1] == cnt[1][1]:
-    print(cnt[1][0])
-else :
-    print(cnt[0][0])
+ndict = {i:0 for i in range(-4000,4001)}
+# n 의 갯수
+numOfN = int(sys.stdin.readline().rstrip())
+for i in range(numOfN):
+    inp = int(sys.stdin.readline().rstrip())
+    ndict[inp] += 1
 
-print(nlist[-1] - nlist[0])
+nlist = []
+for [key, value] in ndict.items():
+    for _ in range(value):
+        nlist.append(key)
+
+orderByCommon = sorted(ndict.items(), key=lambda item:item[1], reverse=True)
+print(round(sum(nlist)/numOfN))
+print(nlist[numOfN//2])
+if len(orderByCommon) > 1:
+    if orderByCommon[0][1] == orderByCommon[1][1]:
+        print(orderByCommon[1][0])
+    else: print(orderByCommon[0][0])
+else:
+    print(orderByCommon[0][0])
+print(nlist[-1]-nlist[0])
