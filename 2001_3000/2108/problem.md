@@ -33,9 +33,6 @@
 
 ***
 
-<div style="display:flex">
-<div style="width:45%; margin-right:5%">
-
 입력
 
 ``` text
@@ -47,9 +44,6 @@
 2
 ```
 
-</div>
-<div style="width:45%">
-
 출력
 
 ``` text
@@ -59,16 +53,9 @@
 10
 ```
 
-</div>
-</div>
-
 ### 테스트 케이스 2
 
 ***
-
-<div style="display:flex">
-<div style="width:45%; margin-right:5%">
-
 
 입력
 
@@ -76,9 +63,6 @@
 1
 4000
 ```
-
-</div>
-<div style="width:45%">
 
 출력
 
@@ -89,15 +73,9 @@
 0
 ```
 
-</div>
-</div>
-
 ### 테스트 케이스 3
 
 ***
-
-<div style="display:flex">
-<div style="width:45%; margin-right:5%">
 
 입력
 
@@ -110,9 +88,6 @@
 -2
 ```
 
-</div>
-<div style="width:45%">
-
 출력
 
 ``` text
@@ -122,15 +97,9 @@
 2
 ```
 
-</div>
-</div>
-
 ### 테스트 케이스 4
 
 ***
-
-<div style="display:flex">
-<div style="width:45%; margin-right:5%">
 
 입력
 
@@ -141,9 +110,6 @@
 -1
 ```
 
-</div>
-<div style="width:45%">
-
 출력
 
 ``` text
@@ -152,9 +118,6 @@
 0
 1
 ```
-
-</div>
-</div>
 
 ## 풀이
 
