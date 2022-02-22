@@ -23,11 +23,8 @@ print(round(sum(nlist)/numOfN))
 # 중앙 값
 print(nlist[numOfN//2])
 # 최빈 값
-if len(orderByCommon) > 1:
-    if orderByCommon[0][1] == orderByCommon[1][1]:
-        print(orderByCommon[1][0])
-    else: print(orderByCommon[0][0])
-else:
-    print(orderByCommon[0][0])
+if orderByCommon[0][1] == orderByCommon[1][1]:
+    print(orderByCommon[1][0])
+else: print(orderByCommon[0][0])
 # 범위
 print(nlist[-1]-nlist[0])
